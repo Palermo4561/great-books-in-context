@@ -1,4 +1,8 @@
-# React + TypeScript + Vite
+# Great Books in Context - website
+
+A simple website for Christian's GBIC lecture series @ Columbia University
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
