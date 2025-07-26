@@ -18,7 +18,7 @@ const TEXT_TYPE_MAP: Record<TextKey, keyof JSX.IntrinsicElements> = {
 }
 
 const text = tv({
-  base: 'text-black',
+  base: 'text-black text-center p-4',
   variants: {
     variant: {
       headliner: 'text-8xl',
