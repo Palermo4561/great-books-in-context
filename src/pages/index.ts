@@ -1,0 +1,6 @@
+export { default as Title } from './Title'
+export { default as Mission } from './Mission'
+export { default as Events } from './Events'
+export { default as SignUp } from './SignUp'
+export { default as Contact } from './Contact'
+export { default as Footer } from './Footer'
