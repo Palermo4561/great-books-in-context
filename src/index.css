@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import 'tailwindcss';
 
 /* custom colors for the app */
@@ -9,4 +10,6 @@
   --color-light-red: oklch(60.88% 0.045 351.23);
   --color-dark-red: oklch(52.41% 0.063 353.27);
   --color-gray: oklch(66.65% 0 0);
+
+  --default-font-family: 'Inria Serif';
 }
