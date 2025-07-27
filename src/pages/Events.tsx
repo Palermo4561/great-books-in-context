@@ -44,14 +44,22 @@ export default function Events() {
       <Text type="header">Upcoming Events</Text>
       <Text type="p_md">Don't miss out on free essay & discussion post help!</Text>
       <Text type="p_sm">
-        Full Google Calendar available <Link href="www.google.com">here</Link>
+        Full Google Calendar available{' '}
+        <Link href={`https://calendar.google.com/calendar/embed?src=${import.meta.env.VITE_CALENDAR_ID}`}>here</Link>
       </Text>
       {events.map((event, idx) => (
         <CalendarEvent key={idx} event={event} />
       ))}
       <Text type="p_sm">
-        ...with more always being added. Get the <Link href="www.google.com">full calendar</Link> or{' '}
-        <Link href="www.google.com">join the mailing list</Link> to never miss an event.
+        ...with more always being added. Get the{' '}
+        <Link href={`https://calendar.google.com/calendar/u/0/r?cid=${import.meta.env.VITE_CALENDAR_ID}`}>
+          full calendar
+        </Link>{' '}
+        or{' '}
+        <Link target="_self" href="#signup">
+          join the mailing list
+        </Link>{' '}
+        to never miss an event.
       </Text>
     </Page>
   )
