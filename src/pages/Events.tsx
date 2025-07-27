@@ -1,3 +1,4 @@
+import CalendarEvent from '@/components/CalendarEvent'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
 import { getCalendarEvents } from '@/lib/calendar'
@@ -46,7 +47,7 @@ export default function Events() {
         Full Google Calendar available <Link href="www.google.com">here</Link>
       </Text>
       {Array.from({ length: 5 }).map((_, idx) => (
-        <div key={idx} className="bg-light-blue mx-8 my-4 h-30 w-auto rounded-2xl text-center" />
+        <CalendarEvent />
       ))}
       <Text type="p_sm">
         ...with more always being added. Get the <Link href="www.google.com">full calendar</Link> or{' '}
