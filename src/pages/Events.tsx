@@ -46,8 +46,8 @@ export default function Events() {
       <Text type="p_sm">
         Full Google Calendar available <Link href="www.google.com">here</Link>
       </Text>
-      {Array.from({ length: 5 }).map((_, idx) => (
-        <CalendarEvent />
+      {events.map((event, idx) => (
+        <CalendarEvent key={idx} event={event} />
       ))}
       <Text type="p_sm">
         ...with more always being added. Get the <Link href="www.google.com">full calendar</Link> or{' '}
