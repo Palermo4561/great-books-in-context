@@ -1,7 +1,10 @@
 import Page from '@/components/Page'
 import Text from '@/components/Text'
+import { getCalendarEvents } from '@/lib/calendar'
 import { cn } from '@/lib/utils'
+import type { GoogleCalendarEventType } from '@/types/calendar.type'
 
+import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -17,6 +20,24 @@ const Link = ({ className, children, ...props }: LinkProps) => {
 }
 
 export default function Events() {
+  const [events, setEvents] = useState<GoogleCalendarEventType[]>([])
+  const [err, setErr] = useState<string | null>(null)
+
+  useEffect(() => {
+    const loadEvents = async () => {
+      try {
+        const data = await getCalendarEvents()
+        setEvents(data)
+      } catch (err: any) {
+        setErr(err.message)
+      }
+    }
+    loadEvents()
+  }, [])
+
+  console.log(err)
+  console.log(events)
+
   return (
     <Page id="events" className="bg-dark-blue">
       <Text type="header">Upcoming Events</Text>
