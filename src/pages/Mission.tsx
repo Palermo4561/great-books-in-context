@@ -5,7 +5,7 @@ export default function Mission() {
   const text = ['Expert Lecturers', 'Engaging Material', 'Thought-Provoking Discussions']
 
   return (
-    <Page className="bg-dark-tan">
+    <Page id="mission" className="bg-dark-tan">
       <Text type="header">
         The Core Curriculum <span className="italic underline">Reimagined</span>
       </Text>

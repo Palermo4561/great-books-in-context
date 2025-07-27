@@ -3,7 +3,7 @@ import Text from '@/components/Text'
 
 export default function SignUp() {
   return (
-    <Page className="bg-dark-tan">
+    <Page id="signup" className="bg-dark-tan">
       <Text type="subheader">Interested?</Text>
       <Text type="header">Join our mailing list</Text>
       <Text type="p_md">Stay updated on events and opportunities</Text>

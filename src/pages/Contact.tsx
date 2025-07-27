@@ -3,7 +3,7 @@ import Text from '@/components/Text'
 
 export default function Contact() {
   return (
-    <Page className="bg-light-blue">
+    <Page id="contact" className="bg-light-blue">
       <Text type="subheader">Questions? Comments?</Text>
       <Text type="p_md">
         Contact Christian Bateman as{' '}

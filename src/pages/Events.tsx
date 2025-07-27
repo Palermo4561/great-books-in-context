@@ -18,7 +18,7 @@ const Link = ({ className, children, ...props }: LinkProps) => {
 
 export default function Events() {
   return (
-    <Page className="bg-dark-blue">
+    <Page id="events" className="bg-dark-blue">
       <Text type="header">Upcoming Events</Text>
       <Text type="p_md">Don't miss out on free essay & discussion post help!</Text>
       <Text type="p_sm">

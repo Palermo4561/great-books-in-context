@@ -15,7 +15,7 @@ const Book = () => {
 
 export default function Title() {
   return (
-    <Page className="bg-light-blue p-0">
+    <Page id="title" className="bg-light-blue p-0">
       <div className="flex flex-row justify-between">
         <Column />
         <div className="flex flex-col content-center justify-between pt-20">
