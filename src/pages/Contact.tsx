@@ -1,6 +1,5 @@
 import Page from '@/components/Page'
 import Text from '@/components/Text'
-import { Separator } from 'radix-ui'
 
 export default function Contact() {
   return (
