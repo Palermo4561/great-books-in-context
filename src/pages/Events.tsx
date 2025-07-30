@@ -2,7 +2,7 @@ import CalendarEvent from '@/components/CalendarEvent'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
 import { getCalendarEvents } from '@/lib/calendar'
-import { cn } from '@/lib/utils'
+import { cn, googleDateTimeToMs } from '@/lib/utils'
 import type { GoogleCalendarEventType } from '@/types/calendar.type'
 
 import { useEffect, useState } from 'react'
@@ -28,16 +28,20 @@ export default function Events() {
     const loadEvents = async () => {
       try {
         const data = await getCalendarEvents()
-        setEvents(data)
+        const upcomingEvents = await data.filter(
+          (item: GoogleCalendarEventType) => googleDateTimeToMs(item.end.dateTime) > Date.now()
+        )
+        const sortedUpcoming = await upcomingEvents.sort(
+          (x: GoogleCalendarEventType, y: GoogleCalendarEventType) =>
+            googleDateTimeToMs(x.start.dateTime) - googleDateTimeToMs(y.start.dateTime)
+        )
+        setEvents(sortedUpcoming)
       } catch (err: any) {
         setErr(err.message)
       }
     }
     loadEvents()
   }, [])
-
-  console.log(err)
-  console.log(events)
 
   return (
     <Page id="events" className="bg-dark-blue">
@@ -47,9 +51,17 @@ export default function Events() {
         Full Google Calendar available{' '}
         <Link href={`https://calendar.google.com/calendar/embed?src=${import.meta.env.VITE_CALENDAR_ID}`}>here</Link>
       </Text>
-      {events.map((event, idx) => (
-        <CalendarEvent key={idx} event={event} />
-      ))}
+      {err != null ? (
+        <Text type="subheader" className="my-5">
+          Error loading events
+        </Text>
+      ) : events.length > 0 ? (
+        events.map((event, idx) => <CalendarEvent key={idx} event={event} />)
+      ) : (
+        <Text type="header" className="my-5 font-bold italic">
+          No upcoming events, but stay tuned!
+        </Text>
+      )}
       <Text type="p_sm">
         ...with more always being added. Get the{' '}
         <Link href={`https://calendar.google.com/calendar/u/0/r?cid=${import.meta.env.VITE_CALENDAR_ID}`}>
