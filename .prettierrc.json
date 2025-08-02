@@ -3,6 +3,11 @@
   "tabWidth": 2,
   "semi": false,
   "singleQuote": true,
+  "jsxSingleQuote": true,
   "printWidth": 120,
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss", "@trivago/prettier-plugin-sort-imports"],
+  "tailwindFunctions": ["tv"],
+  "importOrder": ["^@/.*", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

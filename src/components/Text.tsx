@@ -1,5 +1,6 @@
 import type { HTMLAttributes, JSX, ReactNode } from 'react'
 import { tv } from 'tailwind-variants'
+
 import { cn } from '@/lib/utils'
 
 // headliner = the first text

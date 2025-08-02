@@ -1,6 +1,7 @@
 import React from 'react'
-import { Title, Mission, Events, SignUp, Contact, Footer } from './pages'
+
 import Navbar from './components/Navbar'
+import { Contact, Events, Footer, Mission, SignUp, Title } from './pages'
 
 export default function App() {
   return (
