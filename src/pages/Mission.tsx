@@ -1,8 +1,10 @@
+import ImageContainer from '@/components/ImageContainer'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
 
 export default function Mission() {
   const text = ['Expert Lecturers', 'Engaging Material', 'Thought-Provoking Discussions']
+  const images = Array(text.length).fill('/placeholder.png')
 
   return (
     <Page id='mission' className='bg-dark-tan'>
@@ -15,7 +17,7 @@ export default function Mission() {
             <Text className='flex h-30 items-center justify-center' type='subheader'>
               {text[idx]}
             </Text>
-            <div className='bg-light-red w-auto rounded-2xl pb-[100%]' />
+            <ImageContainer imagePath={images[idx]} />
           </div>
         ))}
       </div>
