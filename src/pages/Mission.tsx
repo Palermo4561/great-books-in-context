@@ -3,7 +3,7 @@ import Text from '@/components/Text'
 
 export default function Mission() {
   return (
-    <Page className='p-0 relative'>
+    <Page id='mission' className='p-0 relative'>
       <img aria-label='Columbia University' className='relative' src='columbia_background.jpeg' />
       <div className='absolute z-10 w-full h-full flex flex-col gap-4 justify-center items-center top-0 left-0'>
         <Text type='header' className='underline font-bold'>
