@@ -2,7 +2,7 @@ import Text from '@/components/Text'
 
 export default function Navbar() {
   return (
-    <div className='bg-dark-red fixed top-0 flex w-full flex-row justify-between opacity-95'>
+    <div className='bg-dark-red fixed top-0 flex w-full flex-row justify-between opacity-95 z-50'>
       <div className='flex flex-row content-center'>
         <img className='my-auto h-10 w-10' alt='Book icon' src='/book_icon.svg' />
         <Text type='p_sm' className='font-logo px-1 py-2'>
