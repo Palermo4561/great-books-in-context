@@ -7,7 +7,7 @@ export default function Overview() {
   const images = Array(text.length).fill('/placeholder.png')
 
   return (
-    <Page id='mission' className='bg-dark-tan'>
+    <Page id='overview' className='bg-dark-tan'>
       <Text type='header'>
         The Core Curriculum <span className='italic underline'>Reimagined</span>
       </Text>
