@@ -10,12 +10,12 @@ const Column = () => {
 }
 
 const Book = () => {
-  return <img alt='Book' src='/open_book.png' className='mx-auto w-1/2' />
+  return <img alt='Book' src='/open_book.png' className='mx-auto w-1/2 drop-shadow-xl drop-shadow-dark-blue' />
 }
 
 export default function Title() {
   return (
-    <Page id='title' className='bg-light-blue p-0'>
+    <Page id='title' className='bg-light-blue p-0 m-0 h-full rounded-t-none'>
       <div className='flex flex-row justify-between'>
         <Column />
         <div className='flex flex-col content-center justify-between pt-20'>
@@ -25,6 +25,8 @@ export default function Title() {
         </div>
         <Column />
       </div>
+      <div className='h-5 bg-pillar-bottom' />
+      <div className='h-30 bg-gradient-to-b from-pillar-bottom to-light-blue'></div>
     </Page>
   )
 }

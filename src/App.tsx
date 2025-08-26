@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Toaster } from '@/components/ui/sonner'
 
 import Navbar from './components/Navbar'
@@ -7,7 +5,7 @@ import { Contact, Events, Footer, Mission, Overview, SignUp, Title } from './pag
 
 export default function App() {
   return (
-    <React.Fragment>
+    <div className='bg-light-blue'>
       <Navbar />
       <Title />
       <Overview />
@@ -17,6 +15,6 @@ export default function App() {
       <Contact />
       <Footer />
       <Toaster position='top-center' richColors />
-    </React.Fragment>
+    </div>
   )
 }
