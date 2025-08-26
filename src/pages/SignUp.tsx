@@ -43,7 +43,7 @@ export default function SignUp() {
       <Text type='subheader'>Interested?</Text>
       <Text type='header'>Join our mailing list</Text>
       <Text type='p_md'>Stay updated on events and opportunities</Text>
-      <div className='flex flex-row justify-center'>
+      <div className='flex flex-row justify-center mt-5 box-border'>
         <form onSubmit={submitForm} className='flex flex-row justify-center gap-10 w-5/6'>
           <FormText className='grow'>
             <label className='w-full items-start flex flex-row'>
@@ -72,9 +72,16 @@ export default function SignUp() {
             </label>
           </FormText>
 
-          <button type='submit' className='bg-dark-red rounded-xl font-bold text-2xl text-white px-3'>
-            Subscribe
-          </button>
+          <div className='relative w-[calc(1/8*100%)]'>
+            <div className='w-full h-full flex flex-row justify-center items-center top-0 left-0'>
+              <button
+                type='submit'
+                className='absolute bg-dark-red h-full rounded-xl transition duration-200 ease-in-out hover:scale-110 font-bold text-2xl active:scale-100 text-white px-3 hover:border-4 hover:border-white cursor-pointer'
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </Page>
