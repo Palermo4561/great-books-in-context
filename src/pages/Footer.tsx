@@ -3,7 +3,7 @@ import Text from '@/components/Text'
 
 export default function Footer() {
   return (
-    <Page className='bg-dark-red flex flex-col pb-0 mb-0 rounded-b-none'>
+    <Page className='bg-dark-red flex flex-col pb-0 m-0 rounded-b-none'>
       <div className='flex flex-row pb-4'>
         <img aria-label='Book Icon' src='/book_icon.svg' className='size-30' />
         <div className='font-logo flex flex-col justify-center'>
