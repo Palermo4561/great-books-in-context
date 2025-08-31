@@ -1,3 +1,4 @@
+import FadeInSection from '@/components/FadeInSection'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
 
@@ -18,11 +19,11 @@ export default function Title() {
     <Page id='title' className='bg-light-blue p-0 m-0 h-full rounded-t-none grid grid-rows-[1fr_5%]'>
       <div className='flex flex-row justify-between'>
         <Column />
-        <div className='flex flex-col content-center justify-between pt-20'>
+        <FadeInSection className='flex flex-col content-center justify-between pt-20'>
           <Text type='headliner'>Great Books in Context</Text>
           <Text type='p_md'>A lecture series hosted by Christian Bateman</Text>
           <Book />
-        </div>
+        </FadeInSection>
         <Column />
       </div>
       <div className='h-full grid grid-rows-3'>
