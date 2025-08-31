@@ -39,8 +39,10 @@ export default function SignUp() {
   }
 
   return (
-    <Page id='signup' className='bg-dark-tan'>
-      <Text type='subheader'>Interested?</Text>
+    <Page id='signup' className='bg-dark-tan border-dark-blue border-3 shadow-lg shadow-dark-blue'>
+      <Text type='subheader' className='italic'>
+        Interested?
+      </Text>
       <Text type='header'>Join our mailing list</Text>
       <Text type='p_md'>Stay updated on events and opportunities</Text>
       <div className='flex flex-row justify-center mt-5 box-border'>
