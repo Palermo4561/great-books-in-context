@@ -77,7 +77,7 @@ export default function Events() {
         </Text>
       ) : events.length > 0 ? (
         events.map((event, idx) => (
-          <FadeInSection key={idx}>
+          <FadeInSection className='w-full' key={idx}>
             <CalendarEvent event={event} />
           </FadeInSection>
         ))

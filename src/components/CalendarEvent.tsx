@@ -10,7 +10,7 @@ interface MiniBubbleProps extends HTMLAttributes<HTMLDivElement> {
 
 const MiniBubble = ({ children, className, ...props }: MiniBubbleProps) => {
   return (
-    <div className={cn('bg-light-tan m-2 flex flex-col rounded', className)} {...props}>
+    <div className={cn('bg-dark-tan m-2 rounded', className)} {...props}>
       {children}
     </div>
   )
@@ -58,40 +58,35 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
   // add button
 
   return (
-    <div
-      className={cn(
-        'bg-light-blue mx-8 my-4 flex h-35 w-auto flex-row justify-between rounded p-2 text-center',
-        className
-      )}
-      {...props}
-    >
-      <MiniBubble className='aspect-square justify-center'>
-        <Text className='p-0' type='p_sm'>
-          {dayOfTheWeek}
+    <div className={cn('bg-dark-blue mx-20 my-4 flex h-35 flex-row rounded p-2 text-center', className)} {...props}>
+      <MiniBubble className='aspect-square flex flex-col justify-center items-center'>
+        <Text type='p_sm' className='font-bold m-0! p-0!'>
+          {dayOfTheWeek + '.'}
         </Text>
-        <Text className='p-0' type='p_sm'>
+        <Text type='subheader' className='m-0! p-0!'>
           {dateString}
         </Text>
       </MiniBubble>
-      <div className='grid h-full w-full grid-cols-[3fr_1fr] p-0'>
-        <MiniBubble className='justify-center'>
-          <Text className='self-start py-0' type='p_sm'>
+      <div className='grid flex-1 h-full text-nowrap overflow-ellipsis grid-cols-[5fr_2fr] p-0'>
+        <MiniBubble className='pl-4 grid grid-rows-2 justify-start items-center'>
+          <Text className='underline p-0! text-nowrap w-fit ' type='p_md'>
+            {/* TODO: get text wrapping to work, so there's no overflow */}
             {title}
           </Text>
-          {speaker === '' ? undefined : (
-            <Text className='self-start py-0' type='p_sm'>
+          {speaker !== '' && (
+            <Text className='p-0! mr-auto mb-auto' type='p_sm'>
               {speaker}
             </Text>
           )}
         </MiniBubble>
-        <MiniBubble className='grid grid-rows-3 justify-baseline'>
-          <Text className='flex flex-row self-start py-0 pl-2' type='p_sm'>
+        <MiniBubble className='grid grid-rows-3 justify-start'>
+          <Text type='p_sm' className='p-0!'>
             {timeString}
           </Text>
-          <Text className='flex flex-row self-start py-0 pl-2' type='p_sm'>
+          <Text type='p_sm' className='p-0!'>
             {building}
           </Text>
-          <Text className='flex flex-row self-start py-0 pl-2' type='p_sm'>
+          <Text type='p_sm' className='p-0!'>
             {roomNumber}
           </Text>
         </MiniBubble>
