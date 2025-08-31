@@ -1,4 +1,4 @@
-import { Clock, DoorClosed, MapPin } from 'lucide-react'
+import { CalendarPlus, Clock, DoorClosed, MapPin } from 'lucide-react'
 import type { HTMLAttributes, ReactNode } from 'react'
 
 import Text from '@/components/Text'
@@ -65,8 +65,6 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
   const smallGridText = [timeString, building, roomNumber]
   const smallGridIcons = [<Clock />, <MapPin />, <DoorClosed />]
 
-  // add button
-
   return (
     <div className={cn('bg-dark-blue mx-20 my-4 flex h-35 flex-row rounded p-2 text-center', className)} {...props}>
       <MiniBubble className='aspect-square flex flex-col justify-center items-center'>
@@ -104,7 +102,17 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
           ))}
         </MiniBubble>
       </div>
-      <MiniBubble className='bg-dark-red aspect-square'>Add</MiniBubble>
+      <MiniBubble className='bg-dark-red aspect-square p-0.5'>
+        <a
+          title='Export event to Google Calendar'
+          rel='noopener'
+          className='w-full h-full flex items-center justify-center'
+          href={event?.htmlLink}
+          target='_blank'
+        >
+          <CalendarPlus className='grow size-1/2' color='white' />
+        </a>
+      </MiniBubble>
     </div>
   )
 }
