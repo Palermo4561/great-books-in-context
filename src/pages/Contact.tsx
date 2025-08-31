@@ -2,6 +2,7 @@ import { ClipboardList } from 'lucide-react'
 import type { HTMLAttributes, PropsWithChildren } from 'react'
 import { toast } from 'sonner'
 
+import FadeInSection from '@/components/FadeInSection'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
 import { cn } from '@/lib/utils'
@@ -9,15 +10,17 @@ import { cn } from '@/lib/utils'
 interface WrapProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {}
 
 const Wrap = ({ children, className, ...props }: WrapProps) => (
-  <div
-    className={cn(
-      'p-2 bg-dark-blue rounded-2xl w-full shadow-lg border-light-blue border-2 shadow-dark-blue',
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </div>
+  <FadeInSection>
+    <div
+      className={cn(
+        'p-2 bg-dark-blue rounded-2xl w-full shadow-lg border-light-blue border-2 shadow-dark-blue',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  </FadeInSection>
 )
 
 export default function Contact() {

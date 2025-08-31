@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 
 import CalendarEvent from '@/components/CalendarEvent'
+import FadeInSection from '@/components/FadeInSection'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
 import { getCalendarEvents } from '@/lib/calendar'
@@ -23,15 +24,17 @@ const Link = ({ className, children, ...props }: LinkProps) => {
 interface WrapProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {}
 
 const Wrap = ({ children, className, ...props }: WrapProps) => (
-  <div
-    className={cn(
-      'p-2 bg-dark-blue rounded-2xl w-full shadow-lg border-light-blue border-2 shadow-dark-blue',
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </div>
+  <FadeInSection>
+    <div
+      className={cn(
+        'p-2 bg-dark-blue rounded-2xl w-full shadow-lg border-light-blue border-2 shadow-dark-blue',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  </FadeInSection>
 )
 
 export default function Events() {
@@ -73,7 +76,11 @@ export default function Events() {
           Error loading events
         </Text>
       ) : events.length > 0 ? (
-        events.map((event, idx) => <CalendarEvent key={idx} event={event} />)
+        events.map((event, idx) => (
+          <FadeInSection key={idx}>
+            <CalendarEvent event={event} />
+          </FadeInSection>
+        ))
       ) : (
         <Text type='header' className='my-5 font-bold italic'>
           No upcoming events, but stay tuned!
