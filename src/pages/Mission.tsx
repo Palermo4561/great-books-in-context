@@ -1,12 +1,17 @@
 import FadeInSection from '@/components/FadeInSection'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
+import { getAssetPath } from '@/lib/utils'
 
 export default function Mission() {
   return (
     <Page id='mission' className='p-0 m-0'>
       <div className='relative border-t-5 border-b-5 border-dark-blue'>
-        <img aria-label='Columbia University' className='relative blur-xs' src='columbia_background_cropped.jpeg' />
+        <img
+          aria-label='Columbia University'
+          className='relative blur-xs'
+          src={getAssetPath('/columbia_background_cropped.jpeg')}
+        />
         <div className='absolute z-10 w-full h-full flex flex-col gap-10 justify-center items-center top-0 left-0'>
           <FadeInSection>
             <Text type='header' className='underline font-bold'>

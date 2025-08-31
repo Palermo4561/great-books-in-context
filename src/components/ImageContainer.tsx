@@ -1,7 +1,5 @@
 import type { HTMLAttributes } from 'react'
 
-import { cn } from '@/lib/utils'
-
 interface ImageContainerProps extends HTMLAttributes<HTMLDivElement> {
   imagePath: string
 }

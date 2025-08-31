@@ -1,17 +1,24 @@
 import FadeInSection from '@/components/FadeInSection'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
+import { getAssetPath } from '@/lib/utils'
 
 const Column = () => {
   return (
     <div className='w-60 overflow-hidden'>
-      <img alt='Column' src='/column.png' className='mb-[-50px]' />
+      <img alt='Column' src={getAssetPath('/column.png')} className='mb-[-50px]' />
     </div>
   )
 }
 
 const Book = () => {
-  return <img alt='Book' src='/open_book.png' className='mx-auto w-1/2 drop-shadow-xl drop-shadow-dark-blue' />
+  return (
+    <img
+      alt='Book'
+      src={getAssetPath('/open_book.png')}
+      className='mx-auto w-1/2 drop-shadow-xl drop-shadow-dark-blue'
+    />
+  )
 }
 
 export default function Title() {

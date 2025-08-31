@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function googleDateTimeToMs(dateTime: string) {
   return new Date(dateTime).getTime()
 }
+
+export function getAssetPath(basePath: string): string {
+  return `${import.meta.env.BASE_URL || ''}${basePath}`
+}

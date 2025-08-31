@@ -1,11 +1,12 @@
 import Page from '@/components/Page'
 import Text from '@/components/Text'
+import { getAssetPath } from '@/lib/utils'
 
 export default function Footer() {
   return (
     <Page className='bg-dark-red flex flex-col pb-0 m-0 rounded-b-none'>
       <div className='flex flex-row pb-4'>
-        <img aria-label='Book Icon' src='/book_icon.svg' className='size-30' />
+        <img aria-label='Book Icon' src={getAssetPath('/book_icon.svg')} className='size-30' />
         <div className='font-logo flex flex-col justify-center'>
           <Text type='header' className='py-0'>
             Great Books in Context
@@ -37,7 +38,7 @@ export default function Footer() {
             Website Created by Grayson Palermo, CC '27
           </Text>
           <a rel='noopener' href='https://github.com/Palermo4561/great-books-in-context' target='_blank'>
-            <img aria-label='Source Code to Website' src='/github_icon.png' className='size-10' />
+            <img aria-label='Source Code to Website' src={getAssetPath('/github_icon.png')} className='size-10' />
           </a>
         </div>
       </div>
