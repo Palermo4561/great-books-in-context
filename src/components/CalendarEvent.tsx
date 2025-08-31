@@ -1,3 +1,4 @@
+import { Clock, DoorClosed, MapPin } from 'lucide-react'
 import type { HTMLAttributes, ReactNode } from 'react'
 
 import Text from '@/components/Text'
@@ -15,6 +16,12 @@ const MiniBubble = ({ children, className, ...props }: MiniBubbleProps) => {
     </div>
   )
 }
+
+const NotProvidedText = () => (
+  <Text type='p_sm' className='opacity-50 italic p-0!'>
+    Not Provided
+  </Text>
+)
 
 interface CalendarEventProps extends HTMLAttributes<HTMLDivElement> {
   event: GoogleCalendarEventType
@@ -54,6 +61,9 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
   const building = event.location?.split(',').pop()
   const regexFindRoomNumber = /.*[Rr]oom:\s*(.*)/.exec(event.description) ?? []
   const roomNumber = regexFindRoomNumber.length > 1 ? regexFindRoomNumber[1] : ''
+  // note that these have to be in the same order for it to make sense
+  const smallGridText = [timeString, building, roomNumber]
+  const smallGridIcons = [<Clock />, <MapPin />, <DoorClosed />]
 
   // add button
 
@@ -80,15 +90,18 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
           )}
         </MiniBubble>
         <MiniBubble className='grid grid-rows-3 justify-start'>
-          <Text type='p_sm' className='p-0!'>
-            {timeString}
-          </Text>
-          <Text type='p_sm' className='p-0!'>
-            {building}
-          </Text>
-          <Text type='p_sm' className='p-0!'>
-            {roomNumber}
-          </Text>
+          {smallGridText.map((text, idx) => (
+            <div className='flex flex-row justify-start items-center p-0'>
+              <div className='mx-2'>{smallGridIcons[idx]}</div>
+              {text !== '' ? (
+                <Text type='p_sm' className='p-0!'>
+                  {text}
+                </Text>
+              ) : (
+                <NotProvidedText />
+              )}
+            </div>
+          ))}
         </MiniBubble>
       </div>
       <MiniBubble className='bg-dark-red aspect-square'>Add</MiniBubble>
