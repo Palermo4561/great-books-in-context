@@ -15,7 +15,7 @@ const Book = () => {
 
 export default function Title() {
   return (
-    <Page id='title' className='bg-light-blue p-0 m-0 h-full rounded-t-none'>
+    <Page id='title' className='bg-light-blue p-0 m-0 h-full rounded-t-none grid grid-rows-[1fr_5%]'>
       <div className='flex flex-row justify-between'>
         <Column />
         <div className='flex flex-col content-center justify-between pt-20'>
@@ -25,8 +25,10 @@ export default function Title() {
         </div>
         <Column />
       </div>
-      <div className='h-5 bg-pillar-bottom' />
-      <div className='h-30 bg-gradient-to-b from-pillar-bottom to-light-blue'></div>
+      <div className='h-full grid grid-rows-3'>
+        <div className=' bg-pillar-bottom' />
+        <div className='row-span-2 bg-gradient-to-b from-pillar-bottom to-light-blue'></div>
+      </div>
     </Page>
   )
 }
