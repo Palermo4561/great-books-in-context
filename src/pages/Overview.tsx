@@ -1,30 +1,34 @@
 import ImageContainer from '@/components/ImageContainer'
+import OverviewItem from '@/components/OverviewItem'
 import Page from '@/components/Page'
 import Text from '@/components/Text'
 
 export default function Overview() {
-  const text = ['Expert Lecturers', 'Engaging Material', 'Thought-Provoking Discussions']
+  const text = ['Renowned Lecturers', 'Engaging Material', 'Deep Expertise']
   const images = Array(text.length).fill('/placeholder.png')
 
   return (
-    <Page id='overview' className='bg-dark-tan'>
-      <Text type='header'>
-        The Core Curriculum <span className='italic underline'>Reimagined</span>
-      </Text>
-      <div className='flex flex-row justify-center gap-4 py-8'>
+    <Page id='overview'>
+      <div className='bg-dark-tan border-5 px-2 py-1 shadow-2xl border-dark-red rounded-2xl'>
+        <Text type='header'>The Core Curriculum</Text>
+        <Text type='header' className='font-bold italic'>
+          Reimagined
+        </Text>
+      </div>
+      <div className='grid grid-cols-3'>
+        {text.map((title, idx) => (
+          <OverviewItem title={title} src={images[idx]} description='' className='mx-2 my-5' />
+        ))}
         {Array.from({ length: 3 }).map((_, idx) => (
-          <div key={idx} className='flex w-96 flex-col justify-start'>
-            <Text className='flex h-30 items-center justify-center' type='subheader'>
-              {text[idx]}
-            </Text>
-            <ImageContainer imagePath={images[idx]} />
-          </div>
+          <ImageContainer imagePath={images[idx]} />
         ))}
       </div>
-      <Text type='p_md'>
-        ...and <span className='font-bold italic'>much more</span> to engage with the Core Curriculum beyond the
-        classroom
-      </Text>
+      <div className='bg-dark-tan border-5 px-2 py-1 shadow-2xl border-dark-red rounded-2xl'>
+        <Text type='p_md'>
+          ...and <span className='font-bold italic'>much more</span> to engage with the Core Curriculum beyond the
+          classroom
+        </Text>
+      </div>
     </Page>
   )
 }
