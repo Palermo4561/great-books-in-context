@@ -40,7 +40,7 @@ export default function Contact() {
   }
 
   return (
-    <Page id='contact' className=' m-0 flex flex-col gap-10'>
+    <Page id='contact' className='flex flex-col gap-10'>
       <Wrap>
         <Text type='subheader'>Questions? Comments?</Text>
         <div className='flex flex-row gap-3 justify-center items-center'>
@@ -52,7 +52,7 @@ export default function Contact() {
           </Text>
           <button
             type='button'
-            className='p-4 m-y-auto h-fit cursor-pointer bg-light-blue rounded-2xl hover:text-gray-700 active:text-black'
+            className='p-[1vw] m-y-auto h-fit cursor-pointer bg-light-blue rounded-2xl hover:text-gray-700 active:text-black'
             title='Copy to Clipboard'
             onClick={() => copyToClipboard()}
           >

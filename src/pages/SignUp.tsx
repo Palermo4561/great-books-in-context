@@ -45,7 +45,7 @@ export default function SignUp() {
       </Text>
       <Text type='header'>Join our mailing list</Text>
       <Text type='p_md'>Stay updated on events and opportunities</Text>
-      <div className='flex flex-row justify-center mt-5 box-border'>
+      <div className='flex flex-row justify-center my-5 box-border'>
         <form onSubmit={submitForm} className='flex flex-row justify-center gap-10 w-5/6'>
           <FormText className='grow'>
             <label className='w-full items-start flex flex-row'>
