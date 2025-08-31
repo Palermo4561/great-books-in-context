@@ -1,23 +1,72 @@
+import { ClipboardList } from 'lucide-react'
+import type { HTMLAttributes, PropsWithChildren } from 'react'
+import { toast } from 'sonner'
+
 import Page from '@/components/Page'
 import Text from '@/components/Text'
+import { cn } from '@/lib/utils'
+
+interface WrapProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {}
+
+const Wrap = ({ children, className, ...props }: WrapProps) => (
+  <div
+    className={cn(
+      'p-2 bg-dark-blue rounded-2xl w-full shadow-lg border-light-blue border-2 shadow-dark-blue',
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+)
 
 export default function Contact() {
+  const email = 'cab2364@columbia.edu'
+
+  async function copyToClipboard() {
+    const type = 'text/plain'
+    const clipboardItemData = {
+      [type]: email,
+    }
+    const clipboardItem = new ClipboardItem(clipboardItemData)
+
+    try {
+      await navigator.clipboard.write([clipboardItem])
+      toast.success(`Copied '${email}' to clipboard`)
+    } catch (error) {
+      console.error(error)
+      toast.error('Error: Could Not Copy To Clipboard')
+    }
+  }
+
   return (
-    <Page id='contact' className='bg-light-blue'>
-      <Text type='subheader'>Questions? Comments?</Text>
-      <Text type='p_md'>
-        Contact Christian Bateman at{' '}
-        <a href='mailto: cab2364@columbia.edu' className='text-dark-blue underline'>
-          cab2364@columbia.edu
-        </a>
-      </Text>
-      {/* TODO: add a 'copy to clipboard' icon here? */}
-      <div className='mx-auto mt-3 mb-6 h-0.5 w-5/6 rounded-2xl bg-black' />
-      <Text type='header'>Thank you for your interest!</Text>
-      <Text type='p_md'>We hope to see you ar a lecture series event soon.</Text>
-      <Text className='mt-4' type='p_sm'>
-        <span className='italic'>"The roots of education are bitter, but the fruit is sweet."</span> - Laertius
-      </Text>
+    <Page id='contact' className=' m-0 flex flex-col gap-10'>
+      <Wrap>
+        <Text type='subheader'>Questions? Comments?</Text>
+        <div className='flex flex-row gap-3 justify-center items-center'>
+          <Text type='p_md'>
+            Contact Christian Bateman at{' '}
+            <a href={`mailto: ${email}`} className='text-light-blue underline'>
+              cab2364@columbia.edu
+            </a>
+          </Text>
+          <button
+            type='button'
+            className='p-4 m-y-auto h-fit cursor-pointer bg-light-blue rounded-2xl hover:text-gray-700 active:text-black'
+            title='Copy to Clipboard'
+            onClick={() => copyToClipboard()}
+          >
+            <ClipboardList />
+          </button>
+        </div>
+      </Wrap>
+      <Wrap className='bg-dark-tan'>
+        <Text type='header'>Thank you for your interest!</Text>
+        <Text type='p_md'>We hope to see you at a lecture series event soon.</Text>
+        <Text className='mt-4' type='p_sm'>
+          <span className='italic'>"The roots of education are bitter, but the fruit is sweet."</span> - Laertius
+        </Text>
+      </Wrap>
     </Page>
   )
 }
