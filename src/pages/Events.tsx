@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import type { ReactNode } from 'react'
+import type { HTMLAttributes, PropsWithChildren, ReactNode } from 'react'
 
 import CalendarEvent from '@/components/CalendarEvent'
 import Page from '@/components/Page'
@@ -19,6 +19,20 @@ const Link = ({ className, children, ...props }: LinkProps) => {
     </a>
   )
 }
+
+interface WrapProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {}
+
+const Wrap = ({ children, className, ...props }: WrapProps) => (
+  <div
+    className={cn(
+      'p-2 bg-dark-blue rounded-2xl w-full shadow-lg border-light-blue border-2 shadow-dark-blue',
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </div>
+)
 
 export default function Events() {
   const [events, setEvents] = useState<GoogleCalendarEventType[]>([])
@@ -44,13 +58,16 @@ export default function Events() {
   }, [])
 
   return (
-    <Page id='events' className='bg-dark-blue'>
-      <Text type='header'>Upcoming Events</Text>
-      <Text type='p_md'>Don't miss out on free essay & discussion post help!</Text>
-      <Text type='p_sm'>
-        Full Google Calendar available{' '}
-        <Link href={`https://calendar.google.com/calendar/embed?src=${import.meta.env.VITE_CALENDAR_ID}`}>here</Link>
-      </Text>
+    <Page id='events' className='flex flex-col gap-10'>
+      <Wrap>
+        <Text type='header'>Upcoming Events</Text>
+        <Text type='p_md'>Don't miss out on free essay & discussion post help!</Text>
+        <Text type='p_sm'>
+          Full Google Calendar available{' '}
+          <Link href={`https://calendar.google.com/calendar/embed?src=${import.meta.env.VITE_CALENDAR_ID}`}>here</Link>
+        </Text>
+      </Wrap>
+
       {err != null ? (
         <Text type='subheader' className='my-5'>
           Error loading events
@@ -62,17 +79,20 @@ export default function Events() {
           No upcoming events, but stay tuned!
         </Text>
       )}
-      <Text type='p_sm'>
-        ...with more always being added. Get the{' '}
-        <Link href={`https://calendar.google.com/calendar/u/0/r?cid=${import.meta.env.VITE_CALENDAR_ID}`}>
-          full calendar
-        </Link>{' '}
-        or{' '}
-        <Link target='_self' href='#signup'>
-          join the mailing list
-        </Link>{' '}
-        to never miss an event.
-      </Text>
+
+      <Wrap>
+        <Text type='p_sm'>
+          ...with more always being added. Get the{' '}
+          <Link href={`https://calendar.google.com/calendar/u/0/r?cid=${import.meta.env.VITE_CALENDAR_ID}`}>
+            full calendar
+          </Link>{' '}
+          or{' '}
+          <Link target='_self' href='#signup'>
+            join the mailing list
+          </Link>{' '}
+          to never miss an event.
+        </Text>
+      </Wrap>
     </Page>
   )
 }
