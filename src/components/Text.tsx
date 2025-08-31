@@ -19,7 +19,7 @@ const TEXT_TYPE_MAP: Record<TextKey, ElementType> = {
 }
 
 const text = tv({
-  base: 'text-black text-center xl:p-4 lg:p-3 md:p-2 p-1',
+  base: 'text-ellipsis text-black overflow-hidden text-center xl:p-4 lg:p-3 md:p-2 p-1',
   variants: {
     variant: {
       headliner: 'md:text-7xl xl:text-8xl sm:text-6xl lg:text-[5rem] text-4xl',

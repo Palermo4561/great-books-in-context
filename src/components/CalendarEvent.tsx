@@ -75,14 +75,13 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
           {dateString}
         </Text>
       </MiniBubble>
-      <div className='grid flex-1 h-full text-nowrap overflow-ellipsis grid-cols-[5fr_2fr] p-0'>
+      <div className='grid flex-1 h-full text-nowrap grid-cols-[5fr_2fr] p-0'>
         <MiniBubble className='pl-4 grid grid-rows-2 justify-start items-center'>
-          <Text className='underline p-0! text-nowrap w-fit ' type='p_md'>
-            {/* TODO: get text wrapping to work, so there's no overflow */}
+          <Text title={title} className='underline p-0!' type='p_md'>
             {title}
           </Text>
           {speaker !== '' && (
-            <Text className='p-0! mr-auto mb-auto' type='p_sm'>
+            <Text title={speaker} className='p-0! mr-auto mb-auto' type='p_sm'>
               {speaker}
             </Text>
           )}
@@ -92,7 +91,7 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
             <div className='flex flex-row justify-start items-center p-0'>
               <div className='mx-2'>{smallGridIcons[idx]}</div>
               {text !== '' ? (
-                <Text type='p_sm' className='p-0!'>
+                <Text type='p_sm' className='p-0!' title={text}>
                   {text}
                 </Text>
               ) : (
