@@ -8,7 +8,7 @@ interface PageProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function Page({ children, className, ...props }: PageProps) {
   return (
-    <div className={cn('m-[3vw] rounded-4xl h-fit items-center justify-center', className)} {...props}>
+    <div className={cn('m-[3vw] h-fit items-center justify-center', className)} {...props}>
       {children}
     </div>
   )
