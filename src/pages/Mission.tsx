@@ -9,7 +9,7 @@ export default function Mission() {
       <div className='relative border-t-5 border-b-5 border-dark-blue'>
         <img
           aria-label='Columbia University'
-          className='relative blur-xs'
+          className='relative blur-xs min-h-100'
           src={getAssetPath('/columbia_background_cropped.jpeg')}
         />
         <div className='absolute z-10 w-full h-full flex flex-col gap-10 justify-center items-center top-0 left-0'>
@@ -18,7 +18,7 @@ export default function Mission() {
               Our Mission
             </Text>
           </FadeInSection>
-          <div className='p-6 w-1/2 bg-dark-blue opacity-85 rounded-4xl z-10 shadow-black shadow-lg'>
+          <div className='p-6 w-3/4 lg:w-1/2 bg-dark-blue opacity-85 rounded-4xl z-10 shadow-black shadow-lg'>
             <FadeInSection>
               <Text type='p_sm' className='opacity-100 font-bold text-black'>
                 For over a century, the Columbia Core Curriculum has exposed students to the Great Books of Western
