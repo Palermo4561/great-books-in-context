@@ -24,7 +24,7 @@ const Link = ({ className, children, ...props }: LinkProps) => {
 interface WrapProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {}
 
 const Wrap = ({ children, className, ...props }: WrapProps) => (
-  <FadeInSection>
+  <FadeInSection className='w-full'>
     <div
       className={cn(
         'p-2 bg-dark-blue rounded-2xl w-full shadow-lg border-light-blue border-2 shadow-dark-blue',
@@ -61,7 +61,7 @@ export default function Events() {
   }, [])
 
   return (
-    <Page id='events' className='flex flex-col gap-10'>
+    <Page id='events' className='flex flex-col gap-10 my-[15vw]'>
       <Wrap>
         <Text type='header'>Upcoming Events</Text>
         <Text type='p_md'>Don't miss out on free essay & discussion post help!</Text>
