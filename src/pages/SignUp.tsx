@@ -13,7 +13,7 @@ const FormText = ({ children, className }: HTMLAttributes<HTMLHeadingElement> & 
     <Text
       type='p_sm'
       className={cn(
-        'border-dark-red my-0 rounded-xl border-4 border-solid bg-white flex flew-row items-start',
+        'border-dark-red my-0 rounded-xl border-4 border-solid bg-white flex flew-row items-start text-nowrap overflow-hidden',
         className
       )}
     >
@@ -40,54 +40,60 @@ export default function SignUp() {
   }
 
   return (
-    <Page id='signup' className='bg-dark-tan border-dark-blue border-3 shadow-lg shadow-dark-blue'>
-      <FadeInSection>
-        <Text type='subheader' className='italic'>
-          Interested?
-        </Text>
-        <Text type='header'>Join our mailing list</Text>
-        <Text type='p_md'>Stay updated on events and opportunities</Text>
-        <div className='flex flex-row justify-center my-5 box-border'>
-          <form onSubmit={submitForm} className='flex flex-row justify-center gap-10 w-5/6'>
-            <FormText className='grow'>
-              <label className='w-full items-start flex flex-row'>
-                Email:
-                <input
-                  className='bg-white ml-3 focus:outline-0 text-gray-500 grow'
-                  type='email'
-                  name='email_address'
-                  placeholder='example@domain.com (required)'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </label>
-            </FormText>
-            <FormText>
-              <label>
-                Name:
-                <input
-                  className='bg-white ml-3 focus:outline-0 text-gray-500'
-                  type='text'
-                  name='name'
-                  placeholder='First Last (optional)'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </label>
-            </FormText>
-            <div className='relative w-[calc(1/8*100%)]'>
-              <div className='w-full h-full flex flex-row justify-center items-center top-0 left-0'>
-                <button
-                  type='submit'
-                  className='absolute bg-dark-red h-full rounded-xl transition duration-200 ease-in-out hover:scale-110 font-bold text-2xl active:scale-100 text-white px-3 hover:border-4 hover:border-white cursor-pointer'
-                >
-                  Subscribe
-                </button>
+    <Page id='signup'>
+      <div className='bg-dark-tan rounded-2xl pt-2 border-dark-blue border-3 shadow-lg shadow-dark-blue'>
+        <FadeInSection>
+          <Text type='subheader' className='italic'>
+            Interested?
+          </Text>
+          <Text type='header'>Join our mailing list</Text>
+          <Text type='p_md'>Stay updated on events and opportunities</Text>
+          <div className='flex flex-row justify-center my-5 box-border'>
+            <form onSubmit={submitForm} className='flex flex-row justify-center gap-[2vw] w-5/6'>
+              <FormText className='grow'>
+                <label className='w-full items-start flex flex-row'>
+                  Email:
+                  <input
+                    className='bg-white ml-3 focus:outline-0 text-gray-500 grow'
+                    type='email'
+                    name='email_address'
+                    placeholder='example@domain.com (required)'
+                    title='Email: example@domain.com (required)'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </label>
+              </FormText>
+              <FormText>
+                <label>
+                  Name:
+                  <input
+                    className='bg-white ml-3 focus:outline-0 text-gray-500'
+                    type='text'
+                    name='name'
+                    placeholder='First Last (optional)'
+                    title='Name: First Last (optional)'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </label>
+              </FormText>
+              <div className='relative w-[calc(1/4*100%)] md:w-[calc(1/8*100%)]'>
+                <div className='w-full h-full flex flex-row justify-center items-center top-0 left-0'>
+                  <button
+                    type='submit'
+                    className='absolute bg-dark-red h-full rounded-xl transition duration-200 ease-in-out hover:scale-110 font-bold text-2xl active:scale-100  px-[0.5vw] hover:border-4 hover:border-white cursor-pointer'
+                  >
+                    <Text type='p_sm' className='text-white'>
+                      Subscribe
+                    </Text>
+                  </button>
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
-      </FadeInSection>
+            </form>
+          </div>
+        </FadeInSection>
+      </div>
     </Page>
   )
 }
