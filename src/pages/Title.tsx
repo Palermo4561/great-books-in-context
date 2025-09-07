@@ -4,6 +4,7 @@ import Text from '@/components/Text'
 import { getAssetPath } from '@/lib/utils'
 
 const Column = () => {
+  // TODO: make the column on the right get cropped when it extends past the page
   return (
     <div className='w-60 overflow-hidden'>
       <img alt='Column' src={getAssetPath('/column.png')} className='mb-[-50px]' />
@@ -26,8 +27,10 @@ export default function Title() {
     <Page id='title' className='bg-light-blue p-0 m-0 h-full rounded-t-none grid grid-rows-[1fr_5%]'>
       <div className='flex flex-row justify-between'>
         <Column />
-        <FadeInSection className='flex flex-col content-center justify-between pt-20'>
-          <Text type='headliner'>Great Books in Context</Text>
+        <FadeInSection className='flex flex-col content-center justify-center gap-5 pt-20 max-w-1/2'>
+          <Text type='headliner' className='text-wrap'>
+            Great Books in Context
+          </Text>
           <Text type='p_md'>A lecture series hosted by Christian Bateman</Text>
           <Book />
         </FadeInSection>

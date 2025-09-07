@@ -20,8 +20,7 @@ export default function Overview() {
       <FadeInSection>
         <div className='bg-dark-tan border-5 px-2  py-1 shadow-2xl border-dark-red rounded-2xl'>
           <Text type='p_md'>
-            ...and <span className='font-bold italic'>much more</span> to engage with the Core Curriculum beyond the
-            classroom
+            ...and <span className='font-bold italic'>much more</span> to engage with literature beyond the classroom
           </Text>
         </div>
       </FadeInSection>
