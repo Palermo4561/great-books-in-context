@@ -4,9 +4,8 @@ import Text from '@/components/Text'
 import { getAssetPath } from '@/lib/utils'
 
 const Column = () => {
-  // TODO: make the column on the right get cropped when it extends past the page
   return (
-    <div className='w-60 overflow-hidden'>
+    <div className='w-60 overflow-y-hidden'>
       <img alt='Column' src={getAssetPath('/column.png')} className='mb-[-50px]' />
     </div>
   )
@@ -24,7 +23,7 @@ const Book = () => {
 
 export default function Title() {
   return (
-    <Page id='title' className='bg-light-blue p-0 m-0 h-full rounded-t-none grid grid-rows-[1fr_5%]'>
+    <Page id='title' className='bg-light-blue p-0 m-0 h-full overflow-x-clip rounded-t-none grid grid-rows-[1fr_5%]'>
       <div className='flex flex-row justify-between'>
         <Column />
         <FadeInSection className='flex flex-col content-center justify-center gap-5 pt-20 max-w-1/2'>
@@ -37,7 +36,7 @@ export default function Title() {
         <Column />
       </div>
       <div className='h-full grid grid-rows-3'>
-        <div className=' bg-pillar-bottom' />
+        <div className='bg-pillar-bottom' />
         <div className='row-span-2 bg-gradient-to-b from-pillar-bottom to-light-blue'></div>
       </div>
     </Page>
