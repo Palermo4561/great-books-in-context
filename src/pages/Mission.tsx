@@ -23,7 +23,7 @@ export default function Mission() {
               <Text type='p_sm' className='opacity-100 font-bold text-black'>
                 For over a century, the Columbia Core Curriculum has exposed students to the Great Books of Western
                 literature and philosophy through small, discussion-based seminars. However, there are few opportunities
-                for students to hear directly from leading thinkers who engage critically with these foundational texts.
+                for students to hear directly from leading scholars who engage critically with these foundational texts.
                 Our initiative aims to fill that gap by hosting lectures that place key works from the Literature
                 Humanities and Contemporary Civilization syllabi in broader intellectual and historical contexts.
               </Text>
