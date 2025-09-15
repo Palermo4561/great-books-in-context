@@ -37,7 +37,7 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
   const dayOfTheWeek = startDate.toLocaleDateString(locale, {
     weekday: 'short',
   })
-  const dateString = `${startDate.getMonth()}/${startDate.getDate()}`
+  const dateString = `${startDate.getMonth() + 1}/${startDate.getDate()}`
 
   // details
   const title = event.summary
