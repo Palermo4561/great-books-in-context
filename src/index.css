@@ -8,7 +8,7 @@
 /* custom colors for the app */
 @theme {
   --color-light-blue: oklch(71.09% 0.041 270.79);
-  --color-dark-blue: oklch(47.12% 0.053 280.1);
+  --color-dark-blue: oklch(0.5668 0.053 280.1);
   --color-light-tan: oklch(96.3% 0.018 70.24);
   --color-dark-tan: oklch(87.16% 0.024 75.84);
   --color-light-red: oklch(60.88% 0.045 351.23);
