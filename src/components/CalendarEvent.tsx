@@ -63,10 +63,23 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
   const roomNumber = regexFindRoomNumber.length > 1 ? regexFindRoomNumber[1] : ''
   // note that these have to be in the same order for it to make sense
   const smallGridText = [timeString, building, roomNumber]
-  const smallGridIcons = [<Clock />, <MapPin />, <DoorClosed />]
+  const lucidIconsProps = {
+    className: 'size-[2vw]',
+  }
+  const smallGridIcons = [
+    <Clock {...lucidIconsProps} />,
+    <MapPin {...lucidIconsProps} />,
+    <DoorClosed {...lucidIconsProps} />,
+  ]
 
   return (
-    <div className={cn('bg-dark-blue mx-20 my-4 flex h-35 flex-row rounded p-2 text-center', className)} {...props}>
+    <div
+      className={cn(
+        'bg-dark-blue mx-[4vw] my-[0.8vw] flex h-[14vw] sm:h-[11vw] flex-row rounded p-[0.5vw] text-center',
+        className
+      )}
+      {...props}
+    >
       <MiniBubble className='aspect-square flex flex-col justify-center items-center'>
         <Text type='p_sm' className='font-bold m-0! p-0!'>
           {dayOfTheWeek + '.'}
@@ -76,20 +89,20 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
         </Text>
       </MiniBubble>
       <div className='grid flex-1 h-full text-nowrap grid-cols-[5fr_2fr] p-0'>
-        <MiniBubble className='pl-4 grid grid-rows-2 justify-start items-center'>
-          <Text title={title} className='underline p-0!' type='p_md'>
+        <MiniBubble className='pl-[1vw] grid grid-rows-2 justify-start items-center'>
+          <Text title={title} className='underline p-0! flex flex-row align-baseline' type='p_md'>
             {title}
           </Text>
           {speaker !== '' && (
-            <Text title={speaker} className='p-0! mr-auto mb-auto' type='p_sm'>
+            <Text title={speaker} className='p-0! mb-auto flex flex-row align-baseline' type='p_sm'>
               {speaker}
             </Text>
           )}
         </MiniBubble>
-        <MiniBubble className='grid grid-rows-3 justify-start'>
+        <MiniBubble className='grid grid-rows-3 px-[0.5vw] justify-start items-center'>
           {smallGridText.map((text, idx) => (
             <div className='flex flex-row justify-start items-center p-0'>
-              <div className='mx-2'>{smallGridIcons[idx]}</div>
+              <div className='mr-[0.5vw] '>{smallGridIcons[idx]}</div>
               {text !== '' ? (
                 <Text type='p_sm' className='p-0!' title={text}>
                   {text}

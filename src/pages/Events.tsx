@@ -64,7 +64,6 @@ export default function Events() {
     <Page id='events' className='flex flex-col gap-10 my-[15vw]'>
       <Wrap>
         <Text type='header'>Upcoming Events</Text>
-        <Text type='p_md'>Don't miss out on free essay & discussion post help!</Text>
         <Text type='p_sm'>
           Full Google Calendar available{' '}
           <Link href={`https://calendar.google.com/calendar/embed?src=${import.meta.env.VITE_CALENDAR_ID}`}>here</Link>
