@@ -89,7 +89,7 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
         </Text>
       </MiniBubble>
       <div className='grid flex-1 h-full text-nowrap grid-cols-[5fr_2fr] p-0'>
-        <MiniBubble className='pl-[1vw] grid grid-rows-2 justify-start items-center min-w-0'>
+        <MiniBubble className='px-[1vw] grid grid-rows-2 justify-start items-center min-w-0'>
           <div className='flex flex-row items-center min-w-0'>
             <Text
               title={title}
