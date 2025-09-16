@@ -89,22 +89,35 @@ export default function CalendarEvent({ event, className, ...props }: CalendarEv
         </Text>
       </MiniBubble>
       <div className='grid flex-1 h-full text-nowrap grid-cols-[5fr_2fr] p-0'>
-        <MiniBubble className='pl-[1vw] grid grid-rows-2 justify-start items-center'>
-          <Text title={title} className='underline p-0! flex flex-row align-baseline' type='p_md'>
-            {title}
-          </Text>
-          {speaker !== '' && (
-            <Text title={speaker} className='p-0! mb-auto flex flex-row align-baseline' type='p_sm'>
-              {speaker}
+        <MiniBubble className='pl-[1vw] grid grid-rows-2 justify-start items-center min-w-0'>
+          <div className='flex flex-row items-center min-w-0'>
+            <Text
+              title={title}
+              type='p_md'
+              className='underline p-0! overflow-hidden text-ellipsis text-nowrap min-w-0'
+            >
+              {title}
             </Text>
+          </div>
+          {speaker !== '' && (
+            <div className='flex flex-row items-center min-w-0'>
+              <Text
+                title={speaker}
+                type='p_sm'
+                className='p-0! mb-auto overflow-hidden text-ellipsis text-nowrap min-w-0'
+              >
+                {speaker}
+              </Text>
+            </div>
           )}
         </MiniBubble>
-        <MiniBubble className='grid grid-rows-3 px-[0.5vw] justify-start items-center'>
+
+        <MiniBubble className='grid grid-rows-3 px-[0.5vw] justify-start items-center '>
           {smallGridText.map((text, idx) => (
             <div className='flex flex-row justify-start items-center p-0'>
               <div className='mr-[0.5vw] '>{smallGridIcons[idx]}</div>
               {text !== '' ? (
-                <Text type='p_sm' className='p-0!' title={text}>
+                <Text type='p_sm' title={text} className='p-0! overflow-hidden text-ellipsis text-nowrap min-w-0'>
                   {text}
                 </Text>
               ) : (
