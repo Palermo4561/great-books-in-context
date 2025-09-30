@@ -6,7 +6,7 @@ import { getAssetPath } from '@/lib/utils'
 
 export default function Overview() {
   const text = ['Renowned Lecturers', 'Engaging Material', 'Deep Expertise']
-  const images = Array(text.length).fill(getAssetPath('/placeholder.png'))
+  const images = Array(text.length).fill(getAssetPath('placeholder.png'))
 
   return (
     <Page id='overview' className='mt-[15vw] flex flex-col gap-10'>

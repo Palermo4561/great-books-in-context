@@ -6,7 +6,7 @@ import { getAssetPath } from '@/lib/utils'
 const Column = () => {
   return (
     <div className='w-60 overflow-y-hidden'>
-      <img alt='Column' src={getAssetPath('/column.png')} className='mb-[-50px]' />
+      <img alt='Column' src={getAssetPath('column.png')} className='mb-[-50px]' />
     </div>
   )
 }
@@ -15,7 +15,7 @@ const Book = () => {
   return (
     <img
       alt='Book'
-      src={getAssetPath('/open_book.png')}
+      src={getAssetPath('open_book.png')}
       className='mx-auto w-1/2 drop-shadow-xl drop-shadow-dark-blue'
     />
   )
